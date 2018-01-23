@@ -9,7 +9,7 @@ options(shiny.maxRequestSize = 9*1024^2)
 
 #|--------------------------------------------------- UI CODE -------------------------------------|
 ui <- fluidPage(
-  titlePanel("Analyze genetic marker data with adegenet"),
+  titlePanel("Analyze microsatellite markers genetic data with adegenet R package"),
   hr(),
   tabsetPanel(
     tabPanel("PCA",
@@ -82,7 +82,8 @@ ui <- fluidPage(
     
     tabPanel("Help",
              tags$h1("Tutorial", style = "color:darkblue"),
-             tags$p("In progress", style="font-size:20px"))
+             tags$p("Input file must be of the Genalex format, as explained in the tutorial https://grunwaldlab.github.io/Population_Genetics_in_R/Data_Preparation.html",
+                    style="font-size:20px"))
     
              ),
   
