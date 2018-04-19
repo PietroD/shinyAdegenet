@@ -82,7 +82,12 @@ ui <- fluidPage(
     
     tabPanel("Help",
              tags$h1("Tutorial", style = "color:darkblue"),
-             tags$p("Input file must be of the Genalex format, as explained in the tutorial https://grunwaldlab.github.io/Population_Genetics_in_R/Data_Preparation.html",
+             tags$p("Input file must be of the Genalex format with csv extension, as explained in the tutorial
+                    https://grunwaldlab.github.io/Population_Genetics_in_R/Data_Preparation.html.
+                    An example file could be the 'monpop.csv' file at this link 
+                    http://grunwaldlab.github.io/Population_Genetics_in_R/monpop.csv. If the population
+                    column is included in the file, then the individuals points in the graphs will
+                    automatically be colored according to the population they belong.",
                     style="font-size:20px"))
     
              ),
@@ -99,7 +104,7 @@ ui <- fluidPage(
 #|----------------------------------------------- SERVER CODE ------------------------------------|
 
 server <- function(input, output, session) {
-  upData <- reactive({if(is.null(input$file1)) return(mtcars) 
+  upData <- reactive({if(is.null(input$file1)) return(NULL) 
     inFile <- input$file1
     dat <- read.genalex(inFile$datapath)
     
